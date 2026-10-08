@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { DiAndroid } from "react-icons/di";
+import Products from './components/Products';
 const App = () => {
+
+  function App() {
+    const [count, setCount] = useState(0)
+  }
   return (
-    <h1 className="flex items-center justify-center bg-gray-800 h-screen text-2xl font-bold">
-      welcome ankit..................  <DiAndroid />
-   </h1>
+    <>
+      <Products />
+    </>
   )
 }
 
