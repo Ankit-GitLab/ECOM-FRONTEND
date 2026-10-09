@@ -11,7 +11,10 @@ layer(base);
 
   --color-custom-blue: rgba(28, 100, 242, 1);
 
-
+  --color-banner-color1: #fdc200;
+  --color-banner-color2: #ff2c2c;
+  --color-banner-color3: #21ad61;
+  --color-banner-color4: #723da6;
 
   --background-image-custom-gradient: linear-gradient(
     to right,
