@@ -4,7 +4,7 @@ import ProductCard from "./ProductCard";
 const Products = () => {
 
     const isLoading = false;
-    const errorMessage = "Error fetching product ";
+    const errorMessage = "";
     const products = [{
     productId: 652,
     productName: "Iphone Xs max",

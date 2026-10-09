@@ -1,6 +1,29 @@
-const ProductCard = () => {
+import { useState } from "react"
+
+const ProductCard = ({
+    productId,
+    productName,
+    image,
+    description,
+    quantity,
+    price,
+    discount,
+    specialPrice,
+}) => {
+    const [openProductViewModel, setOpenProductViewModel] = useState(false)
+    const btnLoader = false;
+    const [selectedViewProduct, setSelectedViewProduct] = useState("");
+    const isAvailable = quantity && Number(quantity) > 0;
+
   return (
-    <div>ProductCard</div>
+    <div className="border rounded-lg shadow-xl overflow-hidden transition-shadow duration-300">
+        <div onClick={() => {}} 
+        className="w-full overflow-hidden aspect-3/2">
+            <img className="w-full h-full cursor-pointer transition-transform duration-300 hover:scale-105">
+
+            </img>
+        </div>
+    </div>
   )
 }
 
