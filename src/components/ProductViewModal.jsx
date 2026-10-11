@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
+import { Button, Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { useState } from 'react'
 
 function ProductViewModal({open, setOpen, product, isAvailable}) {
@@ -11,17 +11,30 @@ function ProductViewModal({open, setOpen, product, isAvailable}) {
 
   return (
     <>
-        <Dialog open={open} as="div" className="relative z-10 focus:outline-none" onClose={close}>
+        <Dialog open={open} as="div" className="relative z-10 " onClose={close}>
+        <DialogBackdrop className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4">
             <DialogPanel
               transition
-              className="w-full max-w-md rounded-xl bg-white/5 p-6 backdrop-blur-2xl duration-300 ease-out data-closed:transform-[scale(95%)] data-closed:opacity-0"
+              className="relative transform overflow-hidden rounded-lg bg-white shadow-xl transition-all md:max-w-155 md:min-w-155"
             >
-              <DialogTitle as="h3" className="text-base/7 font-medium text-white">
-                {productName}
-              </DialogTitle>
-              <p className="mt-2 text-sm/6 text-white/50">
+                {image && (
+                    <div className='flex justify-center aspect-3/2'>
+                        <img 
+                            src={image}
+                            alt={productName}>
+                        </img>
+                    </div>
+                )}
+
+              <div className='px-2 pt-2 pb-3'>
+                <DialogTitle as="h3" className="text-base/7 font-medium text-slate-800">
+                    {productName}
+                </DialogTitle>
+              </div>
+
+              <p className="mt-2 text-sm/6 text-slate-700">
                 {description}
               </p>
               <div className="mt-4">
