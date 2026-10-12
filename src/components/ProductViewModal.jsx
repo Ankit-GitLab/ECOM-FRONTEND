@@ -1,4 +1,5 @@
 import { Button, Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
+import { Divider } from '@mui/material';
 import { useState } from 'react'
 
 function ProductViewModal({open, setOpen, product, isAvailable}) {
@@ -28,24 +29,61 @@ function ProductViewModal({open, setOpen, product, isAvailable}) {
                     </div>
                 )}
 
-              <div className='px-2 pt-2 pb-3'>
-                <DialogTitle as="h3" className="text-base/7 font-medium text-slate-800">
+              <div className='px-6 pt-10 pb-2'>
+                <DialogTitle as="h1" className="lg:text-3xl sm:text-2xl text-xl font-semibold leading-6 text-gray-800 m-4 ">
                     {productName}
                 </DialogTitle>
-              </div>
 
-              <p className="mt-2 text-sm/6 text-slate-700">
-                {description}
-              </p>
-              <div className="mt-4">
-                <Button
-                  className="inline-flex items-center gap-2 rounded-md bg-gray-700 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-inner shadow-white/10 focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-gray-600 data-open:bg-gray-700"
-                  onClick={() => setOpen(false)}
+
+                <div className='space-y-2 text-gray-700 pd-4'>
+                    <div className="flex items-center justify-between gap-2">
+                        {specialPrice ? (
+                        <div className="flex flex-col ">
+                            <span className="text-gray-400 line-through">
+                                ${Number(price).toFixed(2)}
+                            </span>
+                            <span className="text-xl font-bold text-slate-700">
+                            ${Number(specialPrice).toFixed(2)}
+                            </span>
+                        </div>
+                        ): (
+                            <div>
+                                <span className="text-xl font-bold text-slate-700">
+                                    {" "}
+                                    ${Number(price).toFixed(2)}
+                                </span>
+                            </div>
+                        )}
+
+
+                        {isAvailable ? (
+                            <p>In Stock</p>
+                        ) : (
+                            <p>Out Of Stock </p>
+                    
+                        )}
+                    </div>
+
+                    <Divider />
+
+                    <p>{description}</p>
+
+                </div>
+            </div>
+
+            <div className="flex-1 m-2 pt-4">
+                <button
+                    onClick={() => setOpen(false)}
+                    type="button"
+                    className="px-4 py-2 text-sm font-semibold text-slate-700 border hover:text-slate-800 hover:border-slate-800 rounded-md"
                 >
-                  Got it, thanks!
-                </Button>
-              </div>
-            </DialogPanel>
+                    Close
+                </button>
+            </div>
+
+
+
+              </DialogPanel>
           </div>
         </div>
       </Dialog>
